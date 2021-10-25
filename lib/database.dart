@@ -9,7 +9,7 @@ class Database {
     });
   }
 
-  int fakeDatabase=0;
+  int fakeDatabase = 0;
 
   Future<void> initDatabase() async {
     fakeDatabase = 0;

@@ -12,8 +12,8 @@ class StateTest extends ConsumerWidget {
     return Scaffold(
       body: Center(
         child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-  crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Center(
               child: watch(userProvider).when(
@@ -24,7 +24,13 @@ class StateTest extends ConsumerWidget {
                 loading: () => CircularProgressIndicator(),
               ),
             ),
-            Center(child: FloatingActionButton.extended( label: Text("Cool button"), icon: Icon(Icons.thumb_up),  onPressed: () => print("cc"))),
+            Center(child: Text(watch(counterController).toString())),
+            Center(
+                child: FloatingActionButton.extended(
+                    label: Text("Cool button"),
+                    icon: Icon(Icons.thumb_up),
+                    onPressed: () =>
+                        context.read(counterController.notifier).add())),
           ],
         ),
       ),
